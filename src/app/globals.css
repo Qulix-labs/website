@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/*
+ * Qulixlabs brand tokens.
+ * Core palette from the brand spec; derived tones are tuned for WCAG AA contrast:
+ *  - cyan (#06C7D9) is an accent and text colour on navy only (8.8:1)
+ *  - cyan-ink (#0B7A86) is the accessible cyan for text on white / soft gray (≥4.6:1)
+ */
+@theme {
+  --color-navy: #0b1528;
+  --color-navy-800: #111d35;
+  --color-navy-700: #1a2742;
+  --color-navy-600: #26355a;
+  --color-cyan: #06c7d9;
+  --color-cyan-ink: #0b7a86;
+  --color-cyan-soft: #e6f9fb;
+  --color-white: #ffffff;
+  --color-mist: #f4f6f9;
+  --color-slate: #334155;
+  --color-muted: #5b6b80;
+  --color-muted-dark: #a9b6c8;
+  --color-line: #e2e7ee;
+  --color-line-dark: #223150;
+
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+
+  --text-display: clamp(2.6rem, 1.6rem + 4.2vw, 5.25rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.035em;
+  --text-headline: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  --text-headline--line-height: 1.08;
+  --text-headline--letter-spacing: -0.03em;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-slate antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-navy;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-cyan);
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Small monospace label used for section eyebrows and capability numbers */
+  .eyebrow {
+    @apply font-mono text-xs font-medium tracking-[0.18em] uppercase;
+  }
+}
+
+/* Purposeful, restrained reveal on scroll. Disabled for reduced-motion users. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+
+  .lattice-path {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw 2.4s var(--ease-out-quart) forwards;
+  }
+
+  .lattice-pulse {
+    animation: pulse 3.2s ease-in-out infinite;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
