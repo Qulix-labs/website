@@ -6,12 +6,15 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Analytics } from "@/components/layout/analytics";
 import { JsonLd } from "@/components/ui/json-ld";
 import { site } from "@/content/site";
+import { isProductionSite } from "@/lib/deployment";
 import { buildMetadata, organizationSchema, websiteSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   ...buildMetadata({ path: "/" }),
   applicationName: site.name,
+  // Vercel preview deployments must not be indexed.
+  ...(isProductionSite ? {} : { robots: { index: false, follow: false } }),
 };
 
 export const viewport: Viewport = {

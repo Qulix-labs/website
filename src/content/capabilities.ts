@@ -498,6 +498,8 @@ export const capabilities: Capability[] = [
           { name: "Multimodal AI", maturity: "available" },
           { name: "Advanced AI reasoning and orchestration", maturity: "available" },
           { name: "AI-native application architecture", maturity: "available" },
+          { name: "Own your intelligence: private AI and small language models you host and control", maturity: "available" },
+          { name: "RAG builds: retrieval-augmented generation grounded in your own data", maturity: "available" },
           { name: "Knowledge graphs and advanced retrieval", maturity: "available" },
           { name: "New AI development frameworks and integration technologies", maturity: "available" },
         ],
@@ -506,7 +508,6 @@ export const capabilities: Capability[] = [
         title: "Experimental",
         description: "Available as scoped proofs of concept and pilots.",
         items: [
-          { name: "Small language models and private AI deployment", maturity: "experimental" },
           { name: "Edge AI and intelligent devices", maturity: "experimental" },
           { name: "Intelligent observability", maturity: "experimental" },
           { name: "Quantum-inspired optimization", maturity: "experimental" },

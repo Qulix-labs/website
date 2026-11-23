@@ -3,8 +3,8 @@
 Status: implemented on branch `feat/v2-six-capabilities`.
 Inspection note: both `Qulix-labs/website` and `Qulix-labs/qulixlabs-website` were empty when work began
 (one README commit / no commits). There was no previous implementation to preserve, so the V2 spec's
-preferred stack (Next.js + TypeScript + Tailwind) is used. The original QX logo file was not in either repo;
-`src/components/brand/logo.tsx` holds a minimalist QX monogram stand-in to replace with the approved artwork.
+preferred stack (Next.js + TypeScript + Tailwind) is used. The QX monogram in `src/components/brand/logo.tsx`
+is the approved logo. Hosting: Vercel.
 
 ---
 
@@ -97,13 +97,12 @@ Adding a product, industry, article or case study is a content edit in `src/cont
 3. **Conversion (done):** service-specific CTAs, preselected contact pathways, secure form endpoint.
 4. **SEO & quality (done):** metadata, JSON-LD, sitemap, robots, content-integrity tests, accessibility pass.
 5. **Next (needs input):**
-   - approved logo file
    - real contact email and form delivery (webhook or Resend key)
    - analytics choice
    - legal pages (privacy and terms)
    - first products and articles
    - CMS selection (the content layer is shaped to map onto Sanity, Contentful or MDX)
-   - hosting and deployment
+   - Vercel: import the repo, set environment variables, connect the qulixlabs.com domain
 
 ## Configuration
 

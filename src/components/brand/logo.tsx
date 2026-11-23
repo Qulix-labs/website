@@ -1,10 +1,9 @@
 import Link from "next/link";
 
 /**
- * QX monogram — minimalist stand-in.
- * Replace the <svg> paths with the approved QX logo artwork when available;
- * keep the `tone` API so header/footer usage doesn't change.
+ * QX monogram — the approved Qulixlabs logo.
  * The Q's tail continues as one stroke of the X; the crossing stroke is Quantum Cyan.
+ * Keep `public/icon.svg` and `src/app/icon.svg` in sync with these paths.
  */
 export function Monogram({ className = "h-8 w-8", tone = "light" }: { className?: string; tone?: "light" | "dark" }) {
   const base = tone === "light" ? "#FFFFFF" : "#0B1528";
